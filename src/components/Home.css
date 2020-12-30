@@ -1,0 +1,132 @@
+#landingSection {
+  height: 540px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.landingSection--container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.landingSection--containerContent {
+  flex: 53.5%;
+  padding: 0 40px;
+}
+
+.landingSection--containerPicture {
+  flex: 46.5%;
+}
+
+.landingSection--containerPicture > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* ----------------------------featuresSection--------------------------- */
+
+#featuresSection {
+  background: #2b1e16;
+  height: 402px;
+}
+
+.featuresSection--container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 45px;
+  text-align: center;
+}
+
+/* --------------------------appPromotionSection--------------------------- */
+
+#appPromotionSection {
+  height: 570px;
+}
+
+.appPromotionSection--container {
+  display: flex;
+  flex-direction: row;
+  max-width: 1400px;
+  padding-left: 40px;
+  height: inherit;
+  margin: 0 auto;
+}
+
+.appPromotionSection--containerContent {
+  flex: 40%;
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+  justify-content: center;
+}
+
+.appPromotionSection--containerContent > h2 {
+  font-size: 40px;
+  font-weight: 600;
+  width: 300px;
+  line-height: 1;
+  letter-spacing: -0.45px;
+}
+
+.appPromotionSection--containerContent > p {
+  font-size: 20px;
+  width: 400px;
+  padding-top: 20px;
+  padding-bottom: 60px;
+  font-weight: 300px;
+  line-height: 1.2;
+  color: #7e808c;
+}
+.downloadButtons {
+  display: flex;
+  flex-direction: row;
+}
+
+.androidDownload,
+.iosDownload {
+  border: none;
+  height: 54px;
+  cursor: pointer;
+  background: none;
+}
+
+.androidDownload,
+.iosDownload:focus {
+  outline: none;
+}
+
+.androidDownload {
+  margin-right: 10px;
+}
+
+.androidDownload > img,
+.iosDownload > img {
+  height: inherit;
+}
+
+.appPromotionSection--containerPictures {
+  flex: 60%;
+  position: relative;
+}
+
+.appPic1,
+.appPic2 {
+  width: 384px;
+  height: 489px;
+  position: absolute;
+}
+
+.appPic1 {
+  top: 0;
+  left: 20px;
+}
+
+.appPic2 {
+  bottom: 0;
+  right: 0;
+}

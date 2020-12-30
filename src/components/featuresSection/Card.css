@@ -1,0 +1,27 @@
+.cardComponent {
+  width: 260px;
+}
+
+.cardComponentPicture {
+  height: 208px;
+  margin-bottom: 42px;
+  object-fit: contain;
+}
+
+.cardComponentPicture > img {
+  height: 100%;
+}
+
+.cardComponentContent > h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.cardComponentContent > p {
+  font-size: 15px;
+  font-weight: 300;
+  color: #e0cbc1;
+  line-height: 1.3;
+  margin-top: 10px;
+}

@@ -1,0 +1,48 @@
+.header {
+  display: flex;
+  height: 80px;
+  padding-top: 50px;
+  justify-content: space-between;
+}
+
+.headerLogo {
+  object-fit: contain;
+}
+
+.headerLinks {
+  display: flex;
+  align-items: center;
+}
+
+.loginButton,
+.signupButton {
+  border: none;
+  height: 40px;
+  cursor: pointer;
+  padding: 0 2rem;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.loginButton,
+.signupButton:focus {
+  outline: none;
+}
+
+.loginButton {
+  background: none;
+}
+
+.loginButton:hover {
+  color: #fc8019;
+}
+
+.signupButton {
+  color: #ffffff;
+  background-color: #000;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+}
+
+.signupButton:hover {
+  box-shadow: 0 2px 8px #d4d5d9;
+}
