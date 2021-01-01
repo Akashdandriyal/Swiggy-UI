@@ -130,3 +130,66 @@
   bottom: 0;
   right: 0;
 }
+
+/* -------------------------footerSection----------------------- */
+
+#footerSection {
+  background: #000000;
+  height: auto;
+}
+
+.footerSection--container {
+  padding-top: 76px;
+  padding-left: 40px;
+  padding-right: 40px;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.footerSection--containerAbout {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #4d4d4d;
+}
+
+.footerSection--containerAboutdownloadButtons {
+  width: 200px;
+  height: 319px;
+}
+
+.appDownload {
+  width: 200px !important;
+  height: 65px !important;
+  padding: 0;
+  margin-bottom: 30px;
+  transform: scaleX(1);
+  will-change: transform;
+  transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.appDownload:hover {
+  transform: scale3d(1.05, 1.05, 1);
+}
+
+.appDownload > img {
+  width: inherit;
+}
+
+.footerSection--containerDeliveryPlaces > p {
+  color: gray;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.footerSection--containerDeliveryPlaces {
+  border-bottom: 1px solid #4d4d4d;
+  padding: 30px 0 40px;
+  height: 4893px;
+}
+
+.footerSection--containerDeliveryPlacesLink {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: inherit;
+}

@@ -2,6 +2,9 @@ import React from 'react'
 import './Home.css';
 import Header from './Header/Header';
 import Card from './featuresSection/Card';
+import {Company, Contact, Legal, DeliverTo} from './dataFile/links.js';
+import Links from './footerSection/Links';
+import Footer from './footerSection/Footer';
 
 // importing pictures
 import dining from '../images/dining.jpeg';
@@ -12,6 +15,8 @@ import googlePlay from '../images/googlePlay.png';
 import appStore from '../images/appStore.png';
 import appPic1 from '../images/appPic1.png';
 import appPic2 from '../images/appPic2.png';
+import googlePlay2 from '../images/googlePlay2.png';
+import appStore2 from '../images/appStore2.png';
 
 const Home = () => {
     return (
@@ -59,6 +64,28 @@ const Home = () => {
                         <img className="appPic1" src={appPic1} alt=""/>
                         <img className="appPic2" src={appPic2} alt=""/>
                     </div>
+                </div>
+            </section>
+            <section id="footerSection">
+                <div className="footerSection--container">
+                    <div className="footerSection--containerAbout">
+                        <Links data={Company} />
+                        <Links data={Contact} />
+                        <Links data={Legal} />
+                        <div className="footerSection--containerAboutdownloadButtons">
+                            <button className="iosDownload appDownload"><img src={appStore2} alt="app store" /></button>
+                            <button className="androidDownload appDownload"><img src={googlePlay2} alt="google play store" /></button>
+                        </div>
+                    </div>
+                    <div className="footerSection--containerDeliveryPlaces">
+                        <p>WE DELIVER TO</p>
+                        <div className="footerSection--containerDeliveryPlacesLink">
+                                {
+                                    DeliverTo.map(links => <Links data={links} />)
+                                }
+                        </div>
+                    </div>
+                    <Footer />
                 </div>
             </section>
         </div>

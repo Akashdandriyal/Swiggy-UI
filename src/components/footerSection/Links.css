@@ -1,0 +1,37 @@
+.linkContainer {
+  width: 300px;
+  height: 319px;
+  color: #ffffff;
+}
+
+.linkContainer > p {
+  font-size: 15px;
+  color: grey;
+  font-weight: 600;
+}
+
+.linkContainer > ul {
+  margin-top: 30px;
+  list-style: none;
+  padding: 0;
+}
+
+.linkContainer > ul > li {
+  margin-bottom: 15px;
+}
+
+.linkContainer > ul > li > a {
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 300;
+  color: #ffffff;
+}
+
+.linkContainer > ul > li > a:hover {
+  font-weight: bold;
+}
+
+.deliveryPlacelinkContainer {
+  width: 300px;
+  height: 4725px;
+}
