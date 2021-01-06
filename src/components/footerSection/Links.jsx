@@ -1,4 +1,5 @@
 import React from 'react'
+import uuid from 'react-uuid'
 import './Links.css';
 
 const Links = (props) => {
@@ -7,14 +8,14 @@ const Links = (props) => {
             <p>{props.data.title}</p>
             <ul>
             {           
-                props.data.links.map(link => <li><a href={link}>{link}</a></li>)
+                props.data.links.map(link => <li key={uuid()} ><a href={link} >{link}</a></li>)
             }
             </ul>
         </div> :
         <div className="linkContainer deliveryPlacelinkContainer">
             <ul>
                 {
-                    props.data.map(link => <li><a href={link}>{link}</a></li>)
+                    props.data.map(link => <li key={uuid()} ><a href={link} >{link}</a></li>)
                 }
             </ul>
         </div>

@@ -1,3 +1,5 @@
+const PopularCities = ["Ahmedabad", "Bangalore", "Chennai", "Delhi", "Gurgaon", "Hyderabad", "Kolkata", "Mumbai", "Pune"];
+
 const Company = {
     title: "COMPANY",
     links: ["About us", "Team", "Careers", "Swiggy Blog", "Bug Bounty", "Swiggy Super", "Swiggy Corporate"]
@@ -560,4 +562,4 @@ const DeliverTo = [
         ]
 ];
 
-export {Company, Contact, Legal, DeliverTo};
+export {PopularCities, Company, Contact, Legal, DeliverTo};

@@ -1,0 +1,157 @@
+.loginSignup--container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+.loginSignup--containerBlank {
+  flex: 70%;
+  background-color: grey;
+  opacity: 0.3;
+}
+
+.loginSignup--containerContent {
+  flex: 30%;
+  background-color: #ffffff;
+  padding-left: 40px;
+  padding-right: 46px;
+  overflow-y: scroll;
+}
+
+.loginSignup--containerContentHeader {
+  height: 130px;
+  padding-top: 30px;
+  margin-bottom: 69px;
+  position: relative;
+}
+
+.closeIcon {
+  height: fit-content;
+  color: #535665;
+  cursor: pointer;
+}
+
+.loginSignup--containerContentHeader > h2 {
+  margin-top: 20px;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.loginOrSignup > button {
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  background: none;
+  color: #fc8019;
+  padding: 0;
+}
+
+.loginOrSignup > button:focus {
+  outline: none;
+}
+
+.loginOrSignup > hr {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 30px;
+  border: 1px solid #000;
+}
+
+.loginSignup--containerContentHeader > img {
+  height: 105px;
+  width: 100px;
+  position: absolute;
+  top: 58px;
+  right: 0;
+}
+
+.formField {
+  border: 1px solid #d4d5d9;
+  position: relative;
+}
+
+.formField:not(:last-child) {
+  border-bottom: 0px !important;
+}
+
+.formField:last-of-type {
+  border-bottom: 1px solid #d4d5d9 !important;
+}
+
+.formField > input {
+  height: 70px;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 17px;
+  padding: 22px 20px 0 20px;
+  box-shadow: none;
+  box-sizing: border-box;
+  border-radius: 0;
+  text-overflow: ellipsis;
+  font-weight: bold;
+}
+
+.formField > label {
+  position: absolute;
+  left: 0;
+  bottom: 24px;
+  padding-left: 20px;
+  line-height: 20px;
+  font-size: 17px;
+  cursor: text;
+  transition: 0.2s ease;
+  width: 100%;
+  color: #93959f;
+  will-change: transform, color, font-size;
+  pointer-events: none;
+  font-weight: 400;
+}
+
+.formFieldLabel {
+  font-size: 12px !important;
+  font-weight: 500;
+  color: #696d83;
+  transform: translateY(-70%);
+}
+
+.invalid {
+  color: #fa4a5b !important;
+  font-weight: bold !important;
+}
+
+.showPassword {
+  position: absolute;
+  right: 20px;
+  bottom: 26px;
+  font-size: 14px;
+  transform: translateY(70%);
+  font-weight: bold;
+  color: #5d8ed5;
+  cursor: pointer;
+  will-change: transform;
+  transition: 0.2s ease;
+}
+
+.loginSignupButton {
+  height: 50px;
+  color: #ffffff;
+  width: 100%;
+  background-color: #fc8019;
+  font-size: 14px;
+  margin-top: 20px;
+  letter-spacing: 0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0;
+}
+
+.loginSignupButton:hover {
+  box-shadow: 0 2px 8px #d4d5d9;
+}

@@ -46,3 +46,10 @@
 .signupButton:hover {
   box-shadow: 0 2px 8px #d4d5d9;
 }
+
+.loginSignup {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 3;
+}

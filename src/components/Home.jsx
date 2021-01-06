@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
+import uuid from 'react-uuid';
 import './Home.css';
 import Header from './Header/Header';
 import Card from './featuresSection/Card';
-import {Company, Contact, Legal, DeliverTo} from './dataFile/links.js';
+import {PopularCities, Company, Contact, Legal, DeliverTo} from './dataFile/links.js';
 import Links from './footerSection/Links';
 import Footer from './footerSection/Footer';
+import MyLocationIcon from '@material-ui/icons/MyLocation';
 
 // importing pictures
 import dining from '../images/dining.jpeg';
@@ -19,12 +21,99 @@ import googlePlay2 from '../images/googlePlay2.png';
 import appStore2 from '../images/appStore2.png';
 
 const Home = () => {
+
+    const [location, setLocation] = useState("");
+    const [buttonContent, setButtonContent] = useState("Locate Me");
+    
+
+    const changeLocation = (event) => {
+        setLocation(event.target.value);
+        if(event.target.value !== "") {
+            setButtonContent("Clear");
+        } else {
+            setButtonContent("Locate Me");
+        }
+    }
+    
+    const handleLocationButtonClick = () => {
+        if(buttonContent === 'Clear') {
+            setLocation("");
+            setButtonContent("Locate Me");
+        } else {
+            // Get user coordinates 
+            function getCoordintes() { 
+                var options = { 
+                    enableHighAccuracy: true, 
+                    timeout: 5000, 
+                    maximumAge: 0 
+                }; 
+
+                function success(pos) { 
+                    var crd = pos.coords; 
+                    var lat = crd.latitude.toString(); 
+                    var lng = crd.longitude.toString(); 
+                    var coordinates = [lat, lng]; 
+                    console.log(`Latitude: ${lat}, Longitude: ${lng}`); 
+                    getCity(coordinates); 
+                    return; 
+
+                } 
+
+                function error(err) { 
+                    console.warn(`ERROR(${err.code}): ${err.message}`); 
+                } 
+
+                navigator.geolocation.getCurrentPosition(success, error, options); 
+            } 
+
+            // Get city name 
+            function getCity(coordinates) { 
+                var xhr = new XMLHttpRequest(); 
+                var lat = coordinates[0]; 
+                var lng = coordinates[1]; 
+
+                
+                xhr.open('GET', "https://us1.locationiq.com/v1/reverse.php?key="+ process.env.REACT_APP_KEY + "&lat=" + 
+                lat + "&lon=" + lng + "&format=json", true); 
+                xhr.send(); 
+                xhr.onreadystatechange = processRequest; 
+                xhr.addEventListener("readystatechange", processRequest, false); 
+
+                function processRequest(e) { 
+                    if (xhr.readyState === 4 && xhr.status === 200) { 
+                        var response = JSON.parse(xhr.responseText); 
+                        var city = response.address.city; 
+                        setLocation(city);
+                        setButtonContent("Clear");
+                        return; 
+                    } 
+                } 
+            } 
+
+            getCoordintes(); 
+
+        }
+    }
     return (
         <div>
             <section id="landingSection">
                 <div className="landingSection--container">
                     <div className="landingSection--containerContent">
                         <Header />
+                        <div className="landingSection--containerContentBox">
+                            <div className="landingSection--containerContentBoxSearch">
+                                <input className="searchBar" type="text" placeholder="Enter your delivery location" value={location} onChange={changeLocation} maxLength="30"  />
+                                <button className={`searchBarButton ${(buttonContent === "Clear")?"clear":"location"}`} onClick={handleLocationButtonClick}>{buttonContent}</button>
+                                <button className="searchButton" >FIND FOOD</button>
+                            </div>
+                            <h3>Popular cities in India</h3>
+                            <ul className="landingSection--containerContentBoxPopularCities">
+                                {
+                                    PopularCities.map((city, index) => <li key={uuid()} ><a href={city} style={{color: index%2===0 ? '#686b78' : '#93959f'}} >{city}</a></li>)
+                                }
+                                <li><a href="/#citiesLinks" style={{color: '#93959f'}} >& more.</a></li>
+                            </ul>
+                        </div>
                     </div>
                     <div className="landingSection--containerPicture">
                         <img src={dining} alt=""/>
@@ -79,9 +168,9 @@ const Home = () => {
                     </div>
                     <div className="footerSection--containerDeliveryPlaces">
                         <p>WE DELIVER TO</p>
-                        <div className="footerSection--containerDeliveryPlacesLink">
+                        <div id="citiesLinks" className="footerSection--containerDeliveryPlacesLink">
                                 {
-                                    DeliverTo.map(links => <Links data={links} />)
+                                    DeliverTo.map(links => <Links data={links} key={uuid()} />)
                                 }
                         </div>
                     </div>
