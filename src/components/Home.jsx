@@ -6,7 +6,6 @@ import Card from './featuresSection/Card';
 import {PopularCities, Company, Contact, Legal, DeliverTo} from './dataFile/links.js';
 import Links from './footerSection/Links';
 import Footer from './footerSection/Footer';
-import MyLocationIcon from '@material-ui/icons/MyLocation';
 
 // importing pictures
 import dining from '../images/dining.jpeg';
