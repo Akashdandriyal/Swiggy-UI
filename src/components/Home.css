@@ -17,8 +17,21 @@
   padding: 0 40px;
 }
 
+.landingSection--containerContentBoxTitle > h1 {
+  margin-top: 50px;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.landingSection--containerContentBoxTitle > h2 {
+  font-size: 24px;
+  color: #686b78;
+  line-height: 40px;
+}
+
 .landingSection--containerContentBoxSearch {
   position: relative;
+  margin-top: 35px;
 }
 
 .searchBar {

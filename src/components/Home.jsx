@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import uuid from 'react-uuid';
 import './Home.css';
 import Header from './Header/Header';
@@ -23,8 +23,30 @@ const Home = () => {
 
     const [location, setLocation] = useState("");
     const [buttonContent, setButtonContent] = useState("Locate Me");
-    
+    const [questionIndex, setQuestionIndex] = useState(0);
+    const questions = ["Hungry?", "Unexpected guests?", "Cooking gone wrong?", "Movie marathon?", "Game night?", "Late night at office?"]
 
+    const useInterval = (callback, delay) => {
+        const savedCallback = useRef();
+      
+        // Remember the latest callback.
+        useEffect(() => {
+            savedCallback.current = callback;
+        }, [callback]);
+      
+        // Set up the interval.
+        useEffect(() => {
+            let id = setInterval(() => {
+                savedCallback.current();
+            }, delay);
+            return () => clearInterval(id);
+        }, [delay]);
+    }
+
+    useInterval(() => {
+        setQuestionIndex((questionIndex + 1) % 6);
+    }, 5000);
+    
     const changeLocation = (event) => {
         setLocation(event.target.value);
         if(event.target.value !== "") {
@@ -100,6 +122,10 @@ const Home = () => {
                     <div className="landingSection--containerContent">
                         <Header />
                         <div className="landingSection--containerContentBox">
+                            <div className="landingSection--containerContentBoxTitle">
+                                <h1>{questions[questionIndex]}</h1>
+                                <h2>Order food from favourite restaurants near you.</h2>
+                            </div>
                             <div className="landingSection--containerContentBoxSearch">
                                 <input className="searchBar" type="text" placeholder="Enter your delivery location" value={location} onChange={changeLocation} maxLength="30"  />
                                 <button className={`searchBarButton ${(buttonContent === "Clear")?"clear":"location"}`} onClick={handleLocationButtonClick}>{buttonContent}</button>
